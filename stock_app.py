@@ -40,8 +40,8 @@ import matplotlib.pyplot as plt
 
 # 📈 실적 추이 (EPS 및 수익)
 try:
-    earnings = stock.earnings  # 연도별 데이터 (DataFrame)
-    if not earnings.empty:
+    earnings = stock.earnings  # 연도별 데이터 (DataFrame 또는 None)
+    if earnings is not None and not earnings.empty:
         st.markdown("### 🧾 최근 5년간 실적 추이 (Revenue & EPS)")
 
         # 표로 수치 표시
@@ -58,7 +58,6 @@ try:
         ax.legend()
         st.pyplot(fig)
     else:
-        st.info("실적 데이터가 충분하지 않습니다.")
+        st.info("해당 종목의 실적 데이터가 없습니다.")
 except Exception as e:
     st.error(f"실적 그래프 생성 오류: {e}")
-
