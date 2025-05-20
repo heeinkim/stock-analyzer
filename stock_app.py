@@ -54,4 +54,11 @@ try:
 
         ax.set_xlabel("연도")
         ax.set_ylabel("금액 (단위: 억 달러)")
-        ax.set_title("📊 연도별_
+        ax.set_title("📊 연도별 실적 (Revenue & Earnings)")
+        ax.legend()
+        st.pyplot(fig)
+    else:
+        st.info("실적 데이터가 충분하지 않습니다.")
+except Exception as e:
+    st.error(f"실적 그래프 생성 오류: {e}")
+
